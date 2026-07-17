@@ -51,7 +51,7 @@ Decode the output using either:
 - `rot13` (from **hxtools**)
 - An online ROT13 decoder
 
-**Note:** Save the decoded password into file `1`.
+**Note:** Save the decoded password into file `2`.
 
 ---
 
