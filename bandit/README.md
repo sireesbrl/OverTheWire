@@ -1,4 +1,4 @@
-# OverTheWire
+# Bandit
 
 ## Prerequisites
 
@@ -18,8 +18,6 @@ echo "password" > 1
 ```
 
 ---
-
-# Bandit
 
 ## Level 0
 
