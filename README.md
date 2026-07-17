@@ -14,11 +14,17 @@ This repository contains my notes, solutions, and command references for the **O
 │   ├── 2
 │   ├── ...
 │   └── 33
+├── natas/
+├── krypton/
 ├── leviathan/
 ├── narnia/
 ├── behemoth/
 ├── utumno/
-└── maze/
+├── maze/
+├── vortex/
+├── manpage/
+├── drifter/
+└──formulaone/
 ```
 
 ### Password Files
@@ -38,11 +44,17 @@ These files are intended for local practice and **should not be committed to a p
 | Wargame   |    Status   | Notes                                                                                                 |
 | --------- | :---------: | ----------------------------------------------------------------------------------------------------- |
 | Bandit    | ✅ Completed | Linux fundamentals, SSH, file permissions, cron, networking, OpenSSL, Git, shell scripting, and more. |
+| Natas     |  ⏳ Planned  | Web security.|
+| Krypton   |  🧑‍💻 Current  | Cryptography.                                                                  |
 | Leviathan |  ⏳ Planned  | Privilege escalation and basic binary exploitation.                                                   |
 | Narnia    |  ⏳ Planned  | Buffer overflows and memory corruption.                                                               |
 | Behemoth  |  ⏳ Planned  | Reverse engineering and exploitation.                                                                 |
 | Utumno    |  ⏳ Planned  | Advanced exploitation challenges.                                                                     |
 | Maze      |  ⏳ Planned  | Miscellaneous Linux and security challenges.                                                          |
+| Vortex    |  ⏳ Planned  |                                                                              |
+| Manpage   |  ⏳ Planned  | Man pages.                                                                                            |
+| Drifter   |  ⏳ Planned  |                                                                              |
+| FormulaOne|  ⏳ Planned  |                                                                              |
 
 ## Usage
 
