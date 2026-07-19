@@ -24,8 +24,7 @@ echo "password" > 2
 ### Decode the initial password
 
 ```bash
-echo S1JZUFRPTklTR1JFQVQ= > 0
-base64 -d 0
+echo S1JZUFRPTklTR1JFQVQ= | base64 -d
 ```
 
 **Note:** Save the decoded password into file `1`.
@@ -80,21 +79,8 @@ chmod 777 .
 Encrypt a known plaintext:
 
 ```bash
-/krypton/krypton2/encrypt /etc/issue
-cat ciphertext
-```
-
-Brute-force all possible Caesar shifts:
-
-```bash
-cipher="GNGZFGXFEZXNMOWQZPUZGEQSUNEAZ"
-alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-for i in {0..25}; do
-    rotated="${alphabet:$i}${alphabet:0:$i}"
-    printf "ROT%-2d %s\n" "$i" \
-        "$(echo "$cipher" | tr "$rotated" "$alphabet")"
-done
+ echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > letters
+ /krypton/krypton2/encrypt letters
 ```
 
 The readable output reveals the key is **ROT12**.
@@ -104,26 +90,11 @@ The readable output reveals the key is **ROT12**.
 Read the ciphertext:
 
 ```bash
-cat /krypton/krypton2/krypton3
-```
-
-Brute-force the ciphertext:
-
-```bash
-cipher="OMQEMDUEQMEK"
-alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-for i in {0..25}; do
-    rotated="${alphabet:$i}${alphabet:0:$i}"
-    printf "ROT%-2d %s\n" "$i" \
-        "$(echo "$cipher" | tr "$rotated" "$alphabet")"
-done
+cat /krypton/krypton2/krypton3 | tr [M-ZA-L] [A-Z]
 ```
 
 The **ROT12** output is the password for the next level.
 
 **Notes**
 
-- The password can also be decoded using a ROT12 decoder.
-- In this writeup, the brute-force approach was used to verify the correct shift.
 - Save the decrypted password into file `3`.
