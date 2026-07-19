@@ -5,15 +5,15 @@
 Install the required tools:
 
 ```bash
-sudo apt install sshpass
-sudo apt install hxtools
+sudo apt install sshpass hxtools
 ```
 
-(Optional) Store passwords in numbered files:
+(Optional) Store each level's password in numbered files for easier login:
 
 ```bash
 echo "password" > 1
 echo "password" > 2
+echo "password" > 3
 ...
 ```
 
@@ -24,10 +24,10 @@ echo "password" > 2
 ### Decode the initial password
 
 ```bash
-echo S1JZUFRPTklTR1JFQVQ= | base64 -d
+echo "S1JZUFRPTklTR1JFQVQ=" | base64 -d
 ```
 
-**Note:** Save the decoded password into file `1`.
+Save the decoded password to file `1`.
 
 ---
 
@@ -45,12 +45,12 @@ sshpass -p "$(cat 1)" ssh krypton1@krypton.labs.overthewire.org -p 2231
 cat /krypton/krypton1/krypton2
 ```
 
-Decode the output using either:
+The output is encoded with **ROT13**. Decode it using either:
 
-- `rot13` (from **hxtools**)
-- An online ROT13 decoder
+- `rot13` (from `hxtools`)
+- Any online ROT13 decoder
 
-**Note:** Save the decoded password into file `2`.
+Save the decoded password to file `2`.
 
 ---
 
@@ -79,22 +79,60 @@ chmod 777 .
 Encrypt a known plaintext:
 
 ```bash
- echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > letters
- /krypton/krypton2/encrypt letters
+echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > letters
+/krypton/krypton2/encrypt letters
 ```
 
-The readable output reveals the key is **ROT12**.
+Comparing the plaintext and ciphertext shows the cipher uses **ROT12**.
 
 ### Decrypt the Password
 
-Read the ciphertext:
-
 ```bash
-cat /krypton/krypton2/krypton3 | tr [M-ZA-L] [A-Z]
+cat /krypton/krypton2/krypton3 | tr '[M-ZA-L]' '[A-Z]'
 ```
 
-The **ROT12** output is the password for the next level.
+The resulting plaintext is the password for the next level.
 
-**Notes**
+Save it to file `3`.
 
-- Save the decrypted password into file `3`.
+---
+
+## Level 3
+
+### Connect
+
+```bash
+sshpass -p "$(cat 3)" ssh krypton3@krypton.labs.overthewire.org -p 2231
+```
+
+### Solution
+
+After performing frequency analysis, decrypt the ciphertext:
+
+```bash
+cat /krypton/krypton3/krypton4 | tr '[JDSQBKVIWGYUNCXMA]' '[THEAOWLVDNPSRIFUB]'
+```
+
+Save the decoded password to file `4`.
+
+---
+
+## Level 4
+
+### Connect
+
+```bash
+sshpass -p "$(cat 4)" ssh krypton4@krypton.labs.overthewire.org -p 2231
+cat /krypton/krypton4/krypton5
+```
+
+### Solution
+
+Determine the Vigenère shifts at each position using frequency analysis to recover the key.
+
+- Cipher: **Vigenère**
+- Key: **FREKEY**
+
+Decrypt the ciphertext using the recovered key to obtain the next password.
+
+Save the password to file `5`.
