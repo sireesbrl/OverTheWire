@@ -45,7 +45,7 @@ These files are intended for local practice and **should not be committed to a p
 | --------- | :---------: | ----------------------------------------------------------------------------------------------------- |
 | Bandit    | ✅ Completed | Linux fundamentals, SSH, file permissions, cron, networking, OpenSSL, Git, shell scripting, and more. |
 | Natas     |  ⏳ Planned  | Web security.|
-| Krypton   |  🧑‍💻 Current  | Cryptography.                                                                  |
+| Krypton   |  ✅ Current  | Cryptography.                                                                  |
 | Leviathan |  ⏳ Planned  | Privilege escalation and basic binary exploitation.                                                   |
 | Narnia    |  ⏳ Planned  | Buffer overflows and memory corruption.                                                               |
 | Behemoth  |  ⏳ Planned  | Reverse engineering and exploitation.                                                                 |
