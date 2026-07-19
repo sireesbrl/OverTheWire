@@ -136,3 +136,42 @@ Determine the Vigenère shifts at each position using frequency analysis to reco
 Decrypt the ciphertext using the recovered key to obtain the next password.
 
 Save the password to file `5`.
+
+---
+
+## Level 5
+
+### Connect
+
+```bash
+sshpass -p "$(cat 5)" ssh krypton5@krypton.labs.overthewire.org -p 2231
+```
+
+### Solution
+First find the repeating pattern in the ciphertext to find key length.
+Do similar frequency analysis to recover the key as above.
+
+- Cipher: **Vigenère**
+- Key: **KEYLENGTH**
+  
+Save the password to file `6`.
+
+---
+
+## Level 6
+
+### Connect
+
+```bash
+sshpass -p "$(cat 6)" ssh krypton6@krypton.labs.overthewire.org -p 2231
+```
+
+### Solution
+
+```bash
+python3 -c 'print("A" * 100)' > known.txt
+/krypton/krypton6/encrypt known.txt cipertext.txt
+```
+
+The repeating set of characters is the key as XOR with key will result in the key itself.
+vigenère decrypt the ciphertext and save the password to file `7`.
