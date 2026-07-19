@@ -54,6 +54,7 @@ http://natas3.natas.labs.overthewire.org
 ### Solution
 
 http://natas3.natas.labs.overthewire.org/robots.txt
+
 http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt
 
 Save the password inside div to file `4`.
